@@ -1,0 +1,16 @@
+{
+  "name": "boring-books",
+  "version": "1.0.0",
+  "description": "very boring and not awesome books",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "node ."
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.17.1"
+  }
+}
