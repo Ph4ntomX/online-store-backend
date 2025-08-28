@@ -1,7 +1,9 @@
 let Controller = {}
 const Product = require("../models/product");
 
-Controller.getProducts = async (rawFilter) => {
+Controller.getProducts = async (rawFilter, page = 1, limit = 10) => {
+    // pagination implemented
+
     let filter = {};
     
     if (rawFilter.category) {
@@ -9,7 +11,7 @@ Controller.getProducts = async (rawFilter) => {
     }
 
     try {
-        const products = await Product.find(filter);
+        const products = await Product.find(filter).skip((page - 1) * limit).limit(limit);
         return products;
     } catch (error) {
         return;

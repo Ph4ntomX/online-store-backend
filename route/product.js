@@ -6,8 +6,10 @@ const Controller = require("../controllers/product");
 router.get("/", async (req, res) => {
   try {
     const category = req.query.category;
+    const page = req.query.page;
+    const limit = req.query.limit;
 
-    const products = await Controller.getProducts({category});
+    const products = await Controller.getProducts({category}, page, limit);
 
     if (!products) {
       return res.status(404).send("Products were not found");
